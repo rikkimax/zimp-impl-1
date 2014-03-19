@@ -1,0 +1,75 @@
+#------------------------------------------------------------------------------
+# Name:        unit_tests
+# Purpose:     Providing unit tests for GameState and Item classes
+#
+# Author:      Loki Kristianson
+#
+# Created:     20/03/2014
+#
+#
+#------------------------------------------------------------------------------
+
+import unittest
+
+
+class MainTest(unittest.TestCase):
+    def setUp(self):
+        self.x = "thingy"
+        print (self.x)
+
+    def test_gamestate_01(self):
+        pass
+
+    def test_gamestate_02(self):
+        pass
+
+    def test_gamestate_03(self):
+        pass
+
+    def test_gamestate_04(self):
+        pass
+
+    def test_gamestate_05(self):
+        pass
+
+    def test_gamestate_06(self):
+        pass
+
+    def test_gamestate_07(self):
+        pass
+
+    def test_gamestate_08(self):
+        pass
+
+    def test_item_01(self):
+        pass
+
+    def test_item_02(self):
+        pass
+
+    def test_item_03(self):
+        pass
+
+    def test_item_04(self):
+        pass
+
+    def test_item_05(self):
+        pass
+
+    def test_item_06(self):
+        pass
+
+    def test_item_07(self):
+        pass
+
+    def test_item_08(self):
+        pass
+
+    def tearDown(self):
+        #self.x.dispose()
+        self.x = None
+        print (self.x)
+
+if __name__ == "__main__":
+    unittest.main()
+Enter file contents here
