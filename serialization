@@ -1,0 +1,25 @@
+#------------------------------------------------------------------------------
+# Name:        serialization
+# Purpose:
+#
+# Author:      Loki Kristianson
+#
+# Created:     20/03/2014
+#
+#
+#------------------------------------------------------------------------------
+
+
+import pickle
+import tile
+
+
+# pickle can only save one file - otherwise use shelve
+
+outFile = open('pickle.txt', 'wb')
+pickle.dump(tile.outdoor, outFile)
+outFile.close()
+
+inFile = open('pickle.txt', 'rb')
+newList = pickle.load(inFile)
+print (newList)
