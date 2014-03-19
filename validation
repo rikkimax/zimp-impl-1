@@ -1,0 +1,53 @@
+#------------------------------------------------------------------------------
+# Name:        validation
+# Purpose:
+#
+# Author:      Loki Kristianson
+#
+# Created:     20/03/2014
+#
+#
+#------------------------------------------------------------------------------
+
+
+def validate_list(entries, length):
+    """
+    Check that the input is a list of integers,
+    with 'length' entries, and each entry between 0 and 10.
+    """
+
+    try:
+        length = int(length)
+    except ValueError:
+        raise ParamError('length', length)
+    #
+    # Check the supplied value is a list
+    if not isinstance(value, list):
+        raise TypeError(value)
+    #
+    # check the length of the list is correct
+    if len(entries) > length:
+        raise ValueTooLongError(entries)
+    elif len(entries) < length:
+        raise ValueTooShortError(entries)
+    #
+    # Next, check every member in the list converting strings where necessary
+    new_list = []
+    for entry in entries:
+        if not isinstance(entry, (str, unicode, int)):
+            # a value in the list is not an int or a string
+            raise TypeError(entries)
+        elif isinstance(entry, (str, unicode)):
+            if not entry.isdigit():
+                raise TypeError(entries)
+            else:
+                entry = int(entry)
+        if entry < 0:
+            raise ValueTooSmallError(entries)
+        elif entry > 10:
+            raise ValueTooBigError(entries)
+        new_list.append(entry)
+    #
+    # return the new list
+    return new_list
+Enter file contents here
