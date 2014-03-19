@@ -1,0 +1,52 @@
+#------------------------------------------------------------------------------
+# Name:        pretty_print
+# Purpose:
+#
+# Author:      Loki Kristianson
+#
+# Created:     20/03/2014
+# URL:         http://www.ascii-art.org/
+#
+#------------------------------------------------------------------------------
+
+
+import pprint
+import tile
+
+
+#stuff = ['spam', 'eggs', 'lumberjack', 'knights', 'ni']
+tile.indoor.insert(0, tile.indoor[:])
+pp = pprint.PrettyPrinter(indent=4)
+pp.pprint(tile.indoor)
+
+for x in range(1, 11):
+        print('{0:2d} {1:3d}       {2:4d}'.format(x, x*x, x*x*x))
+
+
+pp_areas = ('foyer', ('kitchen', ('dining room', ('lounge', ('yard', ('garden',
+           ('patio', ('store room',))))))))
+pp_next = ['a' * 10, pp_areas, ['a' * 30, 'b' * 30], ['c' * 20, 'd' * 20]]
+pprint.pprint(pp_next)
+['aaaaaaaaaa',
+ ('kitchen',
+  ('foyer',
+   ('dining room',
+    ('lounge', ('yard', ('garden', ('patio', ('store room',)))))))),
+ ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'],
+ ['cccccccccccccccccccc', 'dddddddddddddddddddd']]
+pprint.pprint(pp_next, depth=3)
+['aaaaaaaaaa',
+ ('foyer', ('kitchen', (...))),
+ ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'],
+ ['cccccccccccccccccccc', 'dddddddddddddddddddd']]
+pprint.pprint(pp_next, width=60)
+['aaaaaaaaaa',
+ ('foyer',
+  ('kitchen',
+   ('dining room',
+    ('ounge',
+     ('yard', ('garden', ('patio', ('store room',)))))))),
+ ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+  'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'],
+ ['cccccccccccccccccccc', 'dddddddddddddddddddd']]
+Enter file contents here
