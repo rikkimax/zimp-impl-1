@@ -12,6 +12,7 @@
 
 import pickle
 import tile
+import shelve
 
 
 # pickle can only save one file - otherwise use shelve
@@ -23,3 +24,48 @@ outFile.close()
 inFile = open('pickle.txt', 'rb')
 newList = pickle.load(inFile)
 print (newList)
+
+
+# Shelve
+
+def addGameStats(database):
+    stats = {}
+    print ("add a new game stat to the database")
+    statNum = input('Enter a stat number: ')
+    stats['1. Room'] = input("Room: ")
+    stats['2. Item1'] = input("Item1: ")
+    stats['3. Item2 (if any)'] = input("Item2: ")
+    stats['4. Health'] = input("Health: ")
+    stats['5. Time'] = input("Time: ")
+
+    database[statNum] = stats
+    return
+
+
+def main():
+
+    database = shelve.open('stat.dat', writeback=True)
+
+    addGameStats(database)
+
+    lookForStat = 1
+
+    while(lookForStat != '0'):
+        lookForStat = input("Enter stat number ('0' to Exit)")
+
+        if lookForStat == '0':
+            break
+        else:
+            try:
+                for i in database[lookForStat]:
+                    print (i, " ", database[lookForStat][i])
+            except KeyError:
+                print ("Stat not in database")
+                break
+            else:
+                print ('\n')
+
+    database.close()
+
+if __name__ == '__main__':
+    main()
