@@ -15,6 +15,9 @@
 import tile
 
 
+import tile
+
+
 class TileState:
 
     def __init__(self, tile, rotation, left, right, top, bottom,
@@ -42,7 +45,7 @@ class TileState:
             self.top = right
             self.bottom = left
         self.has_item_been_found = has_item_been_found
-        print ('The current rotation is ' + str(self.rotation))
+        print ('The ' + str(self.tile) + ' rotation is ' + str(self.rotation))
         return
 
 place_tile = TileState(tile.current_area[1], 1, tile.current_area[2],
